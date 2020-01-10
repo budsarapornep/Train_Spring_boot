@@ -5,16 +5,13 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-@Entity //@Entity ทำให้ public class Player {} เป็น Entity
-@Table(name = "fern_player")
-
+@Entity
+@Table(name = "Fe2n_player")
 public class Player {
+    @Id
+    @SequenceGenerator(name = "pk_sequence", sequenceName = "fe2n_player_id_seq",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_sequence")
 
-    @Id //กำหนดให้ SequenceGenerator fern_player_id_seq เป็น Primary Key
-    @SequenceGenerator(name = "pk_sequene", sequenceName = "fern_player_id_seq",allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_sequence") //กำหนดให้ id รันเลขไปอัตโนมัติ
-
-    //สร้าง attribute ขื่อ name ชนิด Integer
     @Column(name = "player_id", nullable = false)
     private Integer id;
 
@@ -32,8 +29,6 @@ public class Player {
     private Date createdDateTime;
 
     @OneToMany(fetch = FetchType.LAZY)
-    //FetchType.LAZY คือ ตอนที่ดึงข้อมูลของ Player มาไม่ต้องเอา Character ทั้งหมดมาด้วย  แต่ถ้าอยากให้ Character ทั้งหมดมาด้วยก็ต้องใช้ FetchType.EAGER
-    //เวลาคิวรี่ข้อมูลจะได้เฉพาะข้อมูลของเทเบิ้ลนี้
     @JoinColumn(name = "player_id")
     private List<Character> characterList;
 

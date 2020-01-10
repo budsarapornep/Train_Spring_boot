@@ -2,12 +2,14 @@ package com.example.demo.service;
 
 import com.example.demo.dto.PlayerDTO;
 
-import java.text.ParseException;
 import java.util.List;
 
 public interface PlayerService {
-    void save(PlayerDTO player) throws ParseException;
-    PlayerDTO findByName(String name);
+
+    void save(PlayerDTO player);
     List<PlayerDTO> findAll();
+
+    PlayerDTO findByName(String name);
+
     void deleteById(Integer id);
 }

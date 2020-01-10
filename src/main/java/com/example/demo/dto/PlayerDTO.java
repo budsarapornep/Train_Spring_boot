@@ -1,29 +1,20 @@
 package com.example.demo.dto;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import java.util.List;
 
 public class PlayerDTO {
+
     private Integer id;
     private String name;
     private  String birth;
-    private BigDecimal highestScore;
-    private String createdDateTime;
+    private List<CharacterDTO> characterDTOList;
 
-    public BigDecimal getHighestScore() {
-        return highestScore;
+    public List<CharacterDTO> getCharacterDTOList() {
+        return characterDTOList;
     }
 
-    public void setHighestScore(BigDecimal highestScore) {
-        this.highestScore = highestScore;
-    }
-
-    public String getCreatedDateTime() {
-        return createdDateTime;
-    }
-
-    public void setCreatedDateTime(String createdDateTime) {
-        this.createdDateTime = createdDateTime;
+    public void setCharacterDTOList(List<CharacterDTO> characterDTOList) {
+        this.characterDTOList = characterDTOList;
     }
 
     public Integer getId() {
@@ -49,6 +40,4 @@ public class PlayerDTO {
     public void setBirth(String birth) {
         this.birth = birth;
     }
-
-
 }

@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.CharacterDTO;
 import com.example.demo.dto.PlayerDTO;
-import com.example.demo.service.PlayerService;
+import com.example.demo.entity.Character;
+import com.example.demo.service.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,36 +13,36 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/player")
-public class PlayerController {
-    private PlayerService playerService;
+@RequestMapping("/api/character")
+public class CharacterController {
+    private CharacterService characterService;
 
     @Autowired
-    public PlayerController(PlayerService playerService) {
-        this.playerService = playerService;
+    public CharacterController(CharacterService characterService) {
+        this.characterService = characterService;
     }
 
     @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> create(@RequestBody PlayerDTO playerDTO) {
-        playerService.save(playerDTO);
+    public ResponseEntity<String> create(@RequestBody CharacterDTO characterDTO) {
+        characterService.save(characterDTO);
         return new ResponseEntity<>("Create Complete", HttpStatus.OK);
     }
 
     @GetMapping(value = "/get/{name:.+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PlayerDTO> get(@PathVariable String name) {
-        PlayerDTO playerDTO = playerService.findByName(name);
-        return new ResponseEntity<>(playerDTO, HttpStatus.OK);
+    public ResponseEntity<CharacterDTO> get(@PathVariable String name) {
+        CharacterDTO characterDTO = characterService.findByName(name);
+        return new ResponseEntity<>(characterDTO, HttpStatus.OK);
     }
 
     @GetMapping(value = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<PlayerDTO>> list() {
-        List<PlayerDTO> playerDTOList = playerService.findAll();
+    public ResponseEntity<List<CharacterDTO>> list() {
+        List<CharacterDTO> playerDTOList = characterService.findAll();
         return new ResponseEntity<>(playerDTOList, HttpStatus.OK);
     }
 
     @GetMapping(value = "/delete/{id:.+}")
     public ResponseEntity<String> delete(@PathVariable String id) {
-        playerService.deleteById(Integer.parseInt(id));
+        characterService.deleteById(Integer.parseInt(id));
         return new ResponseEntity<>("Delete complete", HttpStatus.OK);
     }
 }
