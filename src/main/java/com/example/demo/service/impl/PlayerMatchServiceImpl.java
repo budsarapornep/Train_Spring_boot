@@ -1,4 +1,5 @@
 package com.example.demo.service.impl;
+import com.example.demo.dto.DataDTO;
 import com.example.demo.dto.PlayerMatchDTO;
 import com.example.demo.entity.PlayerMatch;
 import com.example.demo.mapper.PlayerMatchMapper;
@@ -7,6 +8,8 @@ import com.example.demo.service.PlayerMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Transactional
@@ -31,13 +34,24 @@ public class PlayerMatchServiceImpl implements PlayerMatchService {
     }
 
     @Override
-    public String data() {
-        return playerMatchRepository.data();
+    public List data() {
+        List<DataDTO> dataDTOList = playerMatchRepository.data();
+        return dataDTOList;
     }
 
+//    @Override
+//    public List<PlayerDTO> findAll() {
+//        List<PlayerDTO> playerDTOList = new ArrayList<>();
+//        List<Player> playerList = playerRepository.findAll();
+//        for (Player player : playerList) {
+//            playerDTOList.add(PlayerMapper.getPlayerDTO(player));
+//        }
+//        return playerDTOList;
+//    }
 
     @Override
     public void deleteById(Integer id) {
+
         playerMatchRepository.deleteById(id);
     }
 

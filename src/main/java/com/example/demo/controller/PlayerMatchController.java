@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.CharacterDTO;
+import com.example.demo.dto.DataDTO;
 import com.example.demo.dto.PlayerDTO;
 import com.example.demo.dto.PlayerMatchDTO;
 import com.example.demo.service.PlayerMatchService;
@@ -34,11 +35,6 @@ public class PlayerMatchController {
 //        return new ResponseEntity<>(characterDTO, HttpStatus.OK);
 //    }
 
-//    @GetMapping(value = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<List<CharacterDTO>> list() {
-//        List<CharacterDTO> playerDTOList = characterService.findAll();
-//        return new ResponseEntity<>(playerDTOList, HttpStatus.OK);
-//    }
 
     @GetMapping(value = "/delete/{id:.+}")
     public ResponseEntity<String> delete(@PathVariable String id) {
@@ -52,9 +48,15 @@ public class PlayerMatchController {
         return new ResponseEntity<>("Update highest score complete", HttpStatus.OK);
     }
 
+    //    @GetMapping(value = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<List<CharacterDTO>> list() {
+//        List<CharacterDTO> playerDTOList = characterService.findAll();
+//        return new ResponseEntity<>(playerDTOList, HttpStatus.OK);
+//    }
+
     @GetMapping(value = "/data/")
-    public ResponseEntity<String> data() {
-        String data = playerMatchService.data();
-        return new ResponseEntity<>(data, HttpStatus.OK);
+    public ResponseEntity<List<DataDTO>> list() {
+        List<DataDTO> dataDTOList = playerMatchService.data();
+        return new ResponseEntity<>(dataDTOList, HttpStatus.OK);
     }
 }
