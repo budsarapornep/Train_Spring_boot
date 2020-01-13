@@ -1,9 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.CharacterDTO;
-import com.example.demo.dto.DataDTO;
-import com.example.demo.dto.PlayerDTO;
-import com.example.demo.dto.PlayerMatchDTO;
+import com.example.demo.dto.*;
 import com.example.demo.service.PlayerMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -59,4 +56,13 @@ public class PlayerMatchController {
         List<DataDTO> dataDTOList = playerMatchService.data();
         return new ResponseEntity<>(dataDTOList, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/data2/")
+    public ResponseEntity<List<Data2DTO>> listData2(){
+        List<Data2DTO> data2DTOList = playerMatchService.data2();
+        return new ResponseEntity<>(data2DTOList, HttpStatus.OK);
+    }
+
+//    @PostMapping(value = "/data2/")
+//    public ResponseEntity<List<>>
 }

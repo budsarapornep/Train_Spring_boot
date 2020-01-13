@@ -1,4 +1,5 @@
 package com.example.demo.service.impl;
+import com.example.demo.dto.Data2DTO;
 import com.example.demo.dto.DataDTO;
 import com.example.demo.dto.PlayerMatchDTO;
 import com.example.demo.entity.PlayerMatch;
@@ -39,6 +40,12 @@ public class PlayerMatchServiceImpl implements PlayerMatchService {
         return dataDTOList;
     }
 
+    @Override
+    public List data2(){
+        List<Data2DTO> data2DTOList = playerMatchRepository.data2();
+            return data2DTOList;
+    }
+
 //    @Override
 //    public List<PlayerDTO> findAll() {
 //        List<PlayerDTO> playerDTOList = new ArrayList<>();
@@ -51,7 +58,6 @@ public class PlayerMatchServiceImpl implements PlayerMatchService {
 
     @Override
     public void deleteById(Integer id) {
-
         playerMatchRepository.deleteById(id);
     }
 

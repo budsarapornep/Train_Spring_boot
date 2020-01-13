@@ -11,6 +11,7 @@ public interface PlayerMatchService {
 
     void update();
     List data();
+    List data2();
 
     void deleteById(Integer id);
 
