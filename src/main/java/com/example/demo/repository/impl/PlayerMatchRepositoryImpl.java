@@ -1,6 +1,7 @@
 package com.example.demo.repository.impl;
 import com.example.demo.dao.PlayerMatchDao;
 import com.example.demo.dto.Data2DTO;
+import com.example.demo.dto.Data3DTO;
 import com.example.demo.dto.DataDTO;
 import com.example.demo.entity.PlayerMatch;
 import com.example.demo.repository.PlayerMatchRepository;
@@ -121,5 +122,11 @@ private PlayerMatchDao playerMatchDao;
 
         return data2DTOList;
     }
+
+//    @Override
+//    public List<Data3DTO> fetchData3DTOInnerJoin() {
+//
+//        return playerMatchDao.fetchData3DTOInnerJoin();
+//    }
 
 }

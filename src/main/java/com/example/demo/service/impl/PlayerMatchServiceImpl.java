@@ -9,7 +9,6 @@ import com.example.demo.service.PlayerMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -47,6 +46,21 @@ public class PlayerMatchServiceImpl implements PlayerMatchService {
     }
 
 //    @Override
+//    public List fetchData3DTOInnerJoin() {
+//        return playerMatchRepository.fetchData3DTOInnerJoin();
+//    }
+
+//    @Override
+//    public List postv4(PlayerMatchDTO playerMatchDTO) {
+//        return null;
+//    }
+//
+//    @Override
+//    public List postv5(PlayerMatchDTO playerMatchDTO) {
+//        return null;
+//    }
+
+//    @Override
 //    public List<PlayerDTO> findAll() {
 //        List<PlayerDTO> playerDTOList = new ArrayList<>();
 //        List<Player> playerList = playerRepository.findAll();
@@ -55,7 +69,6 @@ public class PlayerMatchServiceImpl implements PlayerMatchService {
 //        }
 //        return playerDTOList;
 //    }
-
     @Override
     public void deleteById(Integer id) {
         playerMatchRepository.deleteById(id);

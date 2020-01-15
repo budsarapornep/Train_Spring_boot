@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.Data3DTO;
 import com.example.demo.dto.PlayerDTO;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface PlayerService {
     PlayerDTO findByName(String name);
 
     void deleteById(Integer id);
+
+    List<Data3DTO> fetchData();
 }

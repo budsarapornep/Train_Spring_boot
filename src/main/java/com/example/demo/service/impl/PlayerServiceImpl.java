@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.dto.Data3DTO;
 import com.example.demo.dto.PlayerDTO;
 import com.example.demo.entity.Player;
 import com.example.demo.mapper.PlayerMapper;
@@ -52,4 +53,13 @@ public class PlayerServiceImpl implements PlayerService {
     public void deleteById(Integer id) {
         playerRepository.deleteById(id);
     }
+
+    @Override
+    public List<Data3DTO> fetchData() {
+        List<Data3DTO> playerDTOList = new ArrayList<>();
+        playerDTOList = playerRepository.fetchData();
+        return playerDTOList;
+    }
+
+
 }

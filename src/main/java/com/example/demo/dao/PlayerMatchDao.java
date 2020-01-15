@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import com.example.demo.dto.Data3DTO;
 import com.example.demo.dto.DataDTO;
 import com.example.demo.entity.PlayerMatch;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -27,6 +28,18 @@ public interface PlayerMatchDao extends JpaRepository<PlayerMatch,Integer> {
                     "WHERE\n" +
                     "fe2n_player.player_id = ff.player_id", nativeQuery = true)
     void update();
+
+
+//    @Modifying
+//    @Query("select new com.example.demo.dto.Data3DTO(player.name, character.name ,player_match.match_id,\n" +
+//            "match.start_date, match.end_date,match.status, player.highest_score) "+
+//            "from fe2n_player player\n" +
+//            "inner join fe2n_character character on character.player_id = player.player_id\n" +
+//            "inner join fe2n_player_match player_match on player_match.player_id =  player.player_id\n" +
+//            "inner join fe2n_match match on match.match_id = player_match.match_id\n" +
+//            "where match.status = 'finished'\n" +
+//            "order by match.match_id,player.name")
+//    List<Data3DTO> fetchData3DTOInnerJoin();
 
 //    @Query(value = "SELECT * FROM USERS WHERE EMAIL_ADDRESS = ?1", nativeQuery = true)
 //    User findByEmailAddress(String emailAddress);

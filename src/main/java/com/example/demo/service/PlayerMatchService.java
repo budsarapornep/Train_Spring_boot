@@ -12,7 +12,10 @@ public interface PlayerMatchService {
     void update();
     List data();
     List data2();
+//    List fetchData3DTOInnerJoin();
 
+//    List postv4(PlayerMatchDTO playerMatchDTO);
+//    List postv5(PlayerMatchDTO playerMatchDTO);
     void deleteById(Integer id);
 
 //    void updateHighScore(PlayerMatchDTO playerMatchDTO);

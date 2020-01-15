@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.Data3DTO;
 import com.example.demo.dto.PlayerDTO;
 import com.example.demo.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,11 @@ public class PlayerController {
     public ResponseEntity<String> delete(@PathVariable String id) {
         playerService.deleteById(Integer.parseInt(id));
         return new ResponseEntity<>("Delete complete", HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/get/fetchData",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Data3DTO>> fetchData(){
+        List<Data3DTO> fetchDataList = playerService.fetchData();
+        return new ResponseEntity<>(fetchDataList, HttpStatus.OK);
     }
 }

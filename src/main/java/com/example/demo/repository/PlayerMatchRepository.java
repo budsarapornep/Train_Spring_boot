@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.dto.Data2DTO;
+import com.example.demo.dto.Data3DTO;
 import com.example.demo.dto.DataDTO;
 import com.example.demo.entity.PlayerMatch;
 
@@ -13,4 +14,5 @@ public interface PlayerMatchRepository {
     void deleteById(Integer id);
     List<DataDTO> data();
     List<Data2DTO> data2();
+//    List<Data3DTO> fetchData3DTOInnerJoin();
 }

@@ -1,6 +1,8 @@
 package com.example.demo.repository.impl;
 
 import com.example.demo.dao.PlayerDao;
+import com.example.demo.dto.Data3DTO;
+import com.example.demo.dto.PlayerDTO;
 import com.example.demo.entity.Player;
 import com.example.demo.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,12 @@ public class PlayerRepositoryImpl implements PlayerRepository {
     @Override
     public void deleteById(Integer id) {
         playerDao.deleteById(id);
+    }
+
+    @Override
+    public List<Data3DTO> fetchData() {
+        return playerDao.fetchData();
+//        return null;
     }
 }
 
