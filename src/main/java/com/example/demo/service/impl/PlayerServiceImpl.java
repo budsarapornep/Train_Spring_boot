@@ -44,9 +44,21 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
+    public PlayerDTO findById(Integer id) {
+        Player player = playerRepository.findById(id);
+        return PlayerMapper.getPlayerDTO(player);
+    }
+
+    @Override
     public PlayerDTO findByName(String name) {
         Player player = playerRepository.findByName(name);
         return PlayerMapper.getPlayerDTO(player);
+    }
+
+    @Override
+    public void update(PlayerDTO playerDTO) {
+        Player player = PlayerMapper.getplayer(playerDTO);
+        player = playerRepository.update(player);
     }
 
     @Override
@@ -54,12 +66,12 @@ public class PlayerServiceImpl implements PlayerService {
         playerRepository.deleteById(id);
     }
 
-    @Override
-    public List<Data3DTO> fetchData() {
-        List<Data3DTO> playerDTOList = new ArrayList<>();
-        playerDTOList = playerRepository.fetchData();
-        return playerDTOList;
-    }
+//    @Override
+//    public List<Data3DTO> fetchData() {
+//        List<Data3DTO> playerDTOList = new ArrayList<>();
+//        playerDTOList = playerRepository.fetchData();
+//        return playerDTOList;
+//    }
 
 
 }

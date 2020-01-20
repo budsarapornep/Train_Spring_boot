@@ -37,14 +37,24 @@ public class PlayerRepositoryImpl implements PlayerRepository {
     }
 
     @Override
+    public  Player findById(int id){
+        return playerDao.findById(id);
+    }
+
+    @Override
     public void deleteById(Integer id) {
         playerDao.deleteById(id);
     }
 
     @Override
-    public List<Data3DTO> fetchData() {
-        return playerDao.fetchData();
-//        return null;
+    public Player update(Player player) {
+        return playerDao.save(player);
     }
+
+//    @Override
+//    public List<Data3DTO> fetchData() {
+//        return playerDao.fetchData();
+////        return null;
+//    }
 }
 

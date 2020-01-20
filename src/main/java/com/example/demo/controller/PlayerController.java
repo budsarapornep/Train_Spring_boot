@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/player")
 public class PlayerController {
     private PlayerService playerService;
@@ -25,6 +26,18 @@ public class PlayerController {
     public ResponseEntity<String> create(@RequestBody PlayerDTO playerDTO) {
         playerService.save(playerDTO);
         return new ResponseEntity<>("Create Complete", HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/update" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> update(@RequestBody PlayerDTO playerDTO){
+        playerService.save(playerDTO);
+        return new ResponseEntity<>("Update Player Complete", HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/player/{id:.+}")
+    public ResponseEntity<PlayerDTO> player(@PathVariable Integer id) {
+        PlayerDTO playerDTO = playerService.findById(id);
+        return new ResponseEntity<>(playerDTO, HttpStatus.OK);
     }
 
     @GetMapping(value = "/get/{name:.+}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -45,9 +58,9 @@ public class PlayerController {
         return new ResponseEntity<>("Delete complete", HttpStatus.OK);
     }
 
-    @GetMapping(value = "/get/fetchData",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Data3DTO>> fetchData(){
-        List<Data3DTO> fetchDataList = playerService.fetchData();
-        return new ResponseEntity<>(fetchDataList, HttpStatus.OK);
-    }
+//    @GetMapping(value = "/get/fetchData",produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<List<Data3DTO>> fetchData(){
+//        List<Data3DTO> fetchDataList = playerService.fetchData();
+//        return new ResponseEntity<>(fetchDataList, HttpStatus.OK);
+//    }
 }

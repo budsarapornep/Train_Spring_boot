@@ -11,7 +11,9 @@ public interface PlayerRepository {
         Player save(Player player); //Insert Update
         List<Player> findAll(); //Select * from
         Player findByName(String name); // select where from
+        Player findById(int id);
         void deleteById(Integer id);
-        List<Data3DTO> fetchData();
+        Player update(Player player);
+//        List<Data3DTO> fetchData();
 //        List<Data3DTO> fetchData();
 }
